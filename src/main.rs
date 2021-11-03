@@ -129,7 +129,7 @@ mod spin {
 
 	// Same impl's as the standard library's Mutex.
 	unsafe impl<T: Send> Send for Mutex<T> {}
-	unsafe impl<T: Send> Sync for Mutex<T> {}
+	unsafe impl<T: Sync> Sync for Mutex<T> {}
 
 	impl<T> Mutex<T> {
 		pub fn new(value: T) -> Self {
